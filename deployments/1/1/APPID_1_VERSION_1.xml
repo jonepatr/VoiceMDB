@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application schema-version="2" id="1" language="en" country="US" name="Voxeo Designer Demo" allowdtmf="true" allowspeech="true" client-id="1" createdfromtemplate="false" provider-id="6e46397e-5612-462a-bd9d-477088829886">
+  <media>
+    <static-audio id="b0688c54-0d7b-48cf-b737-b79eb8846733" filename="error1.wav">
+      <ttstext><![CDATA[Sorry, I didn't get that.]]></ttstext>
+    </static-audio>
+    <static-audio id="d678a7b7-339c-4136-ad5a-7c937557b656" filename="greeting.wav">
+      <ttstext><![CDATA[Welcome to the Voxeo Designer test project. ]]></ttstext>
+    </static-audio>
+    <static-audio id="fdaa2bfe-0c62-4ef5-a84a-7371a93e60ec" filename="mainmenu.wav">
+      <ttstext><![CDATA[Would you like to listen to a feature overview, test data capture, transfer to a Demo Application or hear the quote of the day?]]></ttstext>
+    </static-audio>
+    <static-audio id="cc9d8a96-3965-46a5-befa-abbed0988e45" filename="overview.wav">
+      <ttstext><![CDATA[Designer is a web-based tool suitable for building 80% of the typical speech applications, greatly improving developer efficiency and enabling less technical users to build and deploy applications. Unlike other easy-to-use web tools for IVR, it was designed for building speech applications from the ground up by people who had been designing speech applications for years. In addition to having an easy-to-use web interface, some of the key features include built-in audio libraries for high quality playback of dates, times, and numbers.   Built-in steps for menu items.  Built-in reprompt and error handling to simplify handling input errors for speech recognition. The easiest way to get familiar with it is to start by loading a template and playing with the values in the template.  When you're ready to start building your own app, first build your call flow on paper, then you will be able to very quickly implement it using Designer. Please enjoy the rest of this demo project by exploring data capture and trying out some of our demo applications.]]></ttstext>
+    </static-audio>
+    <static-audio id="71df6d01-4a5c-445c-9f15-eb575fd01d3d" filename="captureintro.wav">
+      <ttstext><![CDATA[Designer makes it easy to capture different kinds of input from your caller. Try out the different types of input and hear the result in the next menu.]]></ttstext>
+    </static-audio>
+    <static-audio id="af004c1a-c1a9-44e4-ba7d-4cce30bc9066" filename="capturemenu.wav">
+      <ttstext><![CDATA[Would you like to test capturing digits, a number, or a date?]]></ttstext>
+    </static-audio>
+    <static-audio id="70a7d58b-e978-493b-a456-188841699b0e" filename="digitcapture.wav">
+      <ttstext><![CDATA[Please say or enter a five digit number, one digit at a time.]]></ttstext>
+    </static-audio>
+    <static-audio id="2592447d-67e7-4501-9785-a12082366253" filename="numbercapture.wav">
+      <ttstext><![CDATA[Please say or enter a number between one and a thousand.]]></ttstext>
+    </static-audio>
+    <static-audio id="8ceb99ce-ca2f-415e-a4e3-eef18f0fae7c" filename="datecapture.wav">
+      <ttstext><![CDATA[Please say a date. For example, you may say January 1st 2006. You may also enter the date using your telephone keypad in a four digit year, month month, day day format. For example, to enter January 1st 2006 you would enter 2 0 0 6 0 1 0 1.]]></ttstext>
+    </static-audio>
+    <static-audio id="5de11a2f-697a-42f7-8649-7d861c4526ed" filename="youentered.wav">
+      <ttstext><![CDATA[You entered ]]></ttstext>
+    </static-audio>
+    <static-audio id="203cfc6a-baed-4f7f-87a9-2d9194fae0e2" filename="confirmcontinue.wav">
+      <ttstext><![CDATA[Would you like to try another type of data capture?]]></ttstext>
+    </static-audio>
+    <static-audio id="0065317e-88a3-4b18-87b9-e7a2130267e8" filename="captureexit.wav">
+      <ttstext><![CDATA[OK. I'll just take you back to the main menu.]]></ttstext>
+    </static-audio>
+    <static-audio id="10cdab35-329f-4cd5-bdee-cd8ee6808c2e">
+      <ttstext><![CDATA[With a Designer project, you can transfer your callers to another application, whether it be Designer project or a standard VoiceXML application anywhere on the Internet. Prophecy ships with a few template applications you might find useful. Please choose from one of the following applications. Lead Capture or Customer Service.]]></ttstext>
+    </static-audio>
+    <static-audio id="d3955e10-38ab-4a00-8e1f-b3d55fc05ae8" filename="error2.wav">
+      <ttstext><![CDATA[I'm having trouble understanding you. ]]></ttstext>
+    </static-audio>
+    <static-audio id="50cc62a3-bf44-4160-9b17-cfc65bb59feb" filename="mainmenurepeat.wav">
+      <ttstext><![CDATA[Please try using your touch tone keypad by pressing 1 for an overview, 2 for data capture and 3 for demo applications or 4 for quote of the day.]]></ttstext>
+    </static-audio>
+    <static-audio id="4d3da80a-3281-4558-abf8-429786d61d95" filename="quoteintro.wav">
+      <ttstext><![CDATA[The following quote was generated by a local Prophecy web service.]]></ttstext>
+    </static-audio>
+    <static-audio id="b00f5e1d-e3fd-413d-9dd1-9830659f217c" filename="capturemenurepeat.wav">
+      <ttstext><![CDATA[Please try using your touch tone keypad by pressing 1 for digit capture, 2 for number and 3 for date.]]></ttstext>
+    </static-audio>
+    <static-audio id="049188ec-0948-4abd-b409-de49d958cfab" filename="digitrepeat.wav">
+      <ttstext><![CDATA[Please try using your touch tone keypad to enter a five digit number. For example, enter 1 2 3 4 5, one digit at a time.]]></ttstext>
+    </static-audio>
+    <static-audio id="f72f33ef-c56f-40f6-9dc4-4f7b4c9cc1b3" filename="numberrepeat.wav">
+      <ttstext><![CDATA[Please try using your touchtone keypad to enter a number between one and a thousand. For example, enter 1 5 0, one digit at a time to enter the number 150.]]></ttstext>
+    </static-audio>
+    <static-audio id="ae5fd004-80a6-43de-a2cb-34596738766e" filename="daterepeat.wav">
+      <ttstext><![CDATA[Please try using your touchtone keypad to enter a date in a four digit year, month month, day day format. For example, to enter January 1st 2006 you would enter 2 0 0 6 0 1 0 1.]]></ttstext>
+    </static-audio>
+    <static-audio id="18fdf745-4a0d-43b0-a2e6-631a15e622bb" filename="yesnorepeat.wav">
+      <ttstext><![CDATA[Using your touch tone keypad, please enter 1 for yes, and two for no. Would you like to try another type of data capture?]]></ttstext>
+    </static-audio>
+    <static-audio id="0aabfbc9-97ae-49a6-b778-4a194c6010af">
+      <ttstext><![CDATA[Sorry, I didn't get that. Please choose from one of the following applications. Lead Capture or Customer Service.]]></ttstext>
+    </static-audio>
+    <static-audio id="b584839f-cd79-449f-b223-45d522f8b401">
+      <ttstext><![CDATA[I'm having trouble understanding you. Using your touch tone keypad, please press 1 to be transferred to the Lead Capture demo or 2 for Customer Service. ]]></ttstext>
+    </static-audio>
+    <static-audio id="B2CC2ECD-068E-412F-9AB8-1B512D65CD82">
+      <ttstext><![CDATA[Sorry, the Prophecy Auto Attendant is no longer a valid option]]></ttstext>
+    </static-audio>
+  </media>
+  <defaulterrors max-error-step-id="cebda4f9-f86a-44c0-a9f2-70fb3c62b0db">
+    <defaulterror id="e6320e6e-4780-4560-8da7-b64407556d19" sort-order="1">
+      <prompt id="05098e8d-d480-4721-aeb6-ce58da150756">
+        <static-audio-reference id="b3d8c191-4382-49d0-a6ad-44d9b569c170" static-audio-id="b0688c54-0d7b-48cf-b737-b79eb8846733"/>
+      </prompt>
+    </defaulterror>
+    <defaulterror id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4" sort-order="2">
+      <prompt id="8cd98e4a-acd0-46d5-9123-20fb8e51ecdd">
+        <static-audio-reference id="c12b07d0-fff8-4f86-a1fc-bc0d0c0ac018" static-audio-id="d3955e10-38ab-4a00-8e1f-b3d55fc05ae8"/>
+      </prompt>
+    </defaulterror>
+  </defaulterrors>
+  <script version="1.0" initial-step="864a9181-fc27-416f-94a6-0f7bc3040486">
+    <steps>
+      <hangupstep id="cebda4f9-f86a-44c0-a9f2-70fb3c62b0db" name="Hangup"/>
+      <promptstep id="864a9181-fc27-416f-94a6-0f7bc3040486" name="Greeting" next-step-id="fa84f31f-a797-4405-8319-b06f6047f8e0">
+        <prompt id="77f38e29-b1c7-4ac2-a963-e61408f5c1b3">
+          <static-audio-reference id="e076fcda-d90e-40bd-8759-15c1da83df29" static-audio-id="d678a7b7-339c-4136-ad5a-7c937557b656"/>
+        </prompt>
+      </promptstep>
+      <menustep id="fa84f31f-a797-4405-8319-b06f6047f8e0" name="MainMenu" bargein="true">
+        <prompt id="138978d1-4895-49e8-9f9d-0379e7c141f5">
+          <static-audio-reference id="2d49677f-466a-492c-ae14-9ef2420c02bf" static-audio-id="fdaa2bfe-0c62-4ef5-a84a-7371a93e60ec"/>
+        </prompt>
+        <response id="e8287821-1ef3-45ac-a083-39d2b25dff70" keypad="1" next-step-id="ea6c8403-5cb8-4c62-ad59-5d77a98d00c4" type="GENERAL" value="overview,feature overview" runtime-value="" removable="true"/>
+        <response id="6bd902b4-63fa-4935-a0c3-21e7f50188b8" keypad="2" next-step-id="6d1a115a-332e-4829-9475-915b4e9dd785" type="GENERAL" value="data capture,test data capture" runtime-value="" removable="true"/>
+        <response id="38abdd6c-fa83-444c-8f47-4a6be6026b26" keypad="3" next-step-id="5ed374fb-014b-4e50-bbcf-4bf039f92cbf" type="GENERAL" value="transfer,transfer to a demo application,transfer to demo application,demo,demo application" runtime-value="" removable="true"/>
+        <response id="6011ad72-5b2e-4913-9023-38e2b0d07456" keypad="4" next-step-id="0a7d2ea2-0402-4eee-9c57-4020cb293116" type="GENERAL" value="quote,quote of the day,hear quote of the day, hear the quote of the day" runtime-value="" removable="true"/>
+        <errorhandler>
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="54316234-dd62-406e-b4a1-f9e1cff1962a">
+              <static-audio-reference id="7cdbafae-7071-4523-b937-9cb95cc2a587" static-audio-id="fdaa2bfe-0c62-4ef5-a84a-7371a93e60ec"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="27969867-1776-40be-b548-21fd2d13edfe">
+              <static-audio-reference id="0c6e99e4-ed16-4ad6-a130-adbafb345ad4" static-audio-id="50cc62a3-bf44-4160-9b17-cfc65bb59feb"/>
+            </prompt>
+          </error>
+        </errorhandler>
+      </menustep>
+      <promptstep id="ea6c8403-5cb8-4c62-ad59-5d77a98d00c4" name="PlayOverview" next-step-id="fa84f31f-a797-4405-8319-b06f6047f8e0">
+        <prompt id="cfd5a73e-1493-40c6-9faa-c402936a45d8">
+          <static-audio-reference id="e69910bb-554a-4e02-a8f7-5b74c3efa5c1" static-audio-id="cc9d8a96-3965-46a5-befa-abbed0988e45"/>
+        </prompt>
+      </promptstep>
+      <promptstep id="6d1a115a-332e-4829-9475-915b4e9dd785" name="CaptureIntro" next-step-id="a46cda9c-d67b-418b-b635-00c9d76babab">
+        <prompt id="20ec589d-5a8f-4b7b-93fb-8aa7dd4f9dd5">
+          <static-audio-reference id="f86592f9-1515-4d00-8bf2-f08091239e26" static-audio-id="71df6d01-4a5c-445c-9f15-eb575fd01d3d"/>
+        </prompt>
+      </promptstep>
+      <menustep id="5ed374fb-014b-4e50-bbcf-4bf039f92cbf" name="DemoMenu" bargein="true">
+        <prompt id="845479ca-57b3-4cdf-8f71-6c49955bd45d">
+          <static-audio-reference id="2654f7bd-1181-4763-ac0d-64566cb3f436" static-audio-id="10cdab35-329f-4cd5-bdee-cd8ee6808c2e"/>
+        </prompt>
+        <response id="7687969c-7451-49f6-bb8c-b6ab838248ce" keypad="1" next-step-id="a2621cf5-463b-47de-a67a-6e8661d37acf" type="GENERAL" value="lead capture" runtime-value="" removable="true"/>
+        <response id="f39fdeac-0ffb-489a-aa09-e28a90cbad37" keypad="2" next-step-id="25d49ebc-74f1-4d36-9788-be76855bc592" type="GENERAL" value="customer service" runtime-value="" removable="true"/>
+        <errorhandler>
+          <error use-default="false" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="26dbbb4d-2ae4-4819-9b70-5888ef49c206">
+              <static-audio-reference id="ed440c42-8667-4e6b-bf7f-a4c7407bc46e" static-audio-id="0aabfbc9-97ae-49a6-b778-4a194c6010af"/>
+            </prompt>
+          </error>
+          <error use-default="false" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="2f789d5e-4fca-4262-92ae-b8b3485fb111">
+              <static-audio-reference id="3d580ca6-3029-4f4c-a7fd-965f9b435b05" static-audio-id="b584839f-cd79-449f-b223-45d522f8b401"/>
+            </prompt>
+          </error>
+        </errorhandler>
+      </menustep>
+      <menustep id="a46cda9c-d67b-418b-b635-00c9d76babab" name="CaptureMenu" bargein="true">
+        <prompt id="ebc8e1a3-3b38-449c-8ba0-10e8ede2d969">
+          <static-audio-reference id="da65067c-5d1c-4790-81f6-61977e5f7afd" static-audio-id="af004c1a-c1a9-44e4-ba7d-4cce30bc9066"/>
+        </prompt>
+        <response id="773a0dee-3ecc-4bac-bd23-35a338a129d6" keypad="1" next-step-id="8c64c399-2503-4e1a-8ccf-421d41f19c6a" type="GENERAL" value="digits,digit,capture digits" runtime-value="" removable="true"/>
+        <response id="1da81451-d085-422a-9082-b92b15d6e857" keypad="2" next-step-id="77b77060-5455-4788-bc3b-fb11ca609c1e" type="GENERAL" value="number,numbers,capture number" runtime-value="" removable="true"/>
+        <response id="d5e2e4c8-0d8d-4700-8eef-45ca5927604a" keypad="3" next-step-id="a8db0915-ecf9-476f-9891-ce884a743fb2" type="GENERAL" value="date,dates,capture date" runtime-value="" removable="true"/>
+        <errorhandler>
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="1226e312-e17e-4409-9bbc-3421434a764d">
+              <static-audio-reference id="ef7853e3-9bb8-4f56-987a-ebb78193bc1e" static-audio-id="af004c1a-c1a9-44e4-ba7d-4cce30bc9066"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="bcab6c54-10c2-4e73-9281-4d1ef05890d7">
+              <static-audio-reference id="82d73308-ce6b-4042-ae0d-c2c9fb16fd1f" static-audio-id="b00f5e1d-e3fd-413d-9dd1-9830659f217c"/>
+            </prompt>
+          </error>
+        </errorhandler>
+      </menustep>
+      <collectionstep id="8c64c399-2503-4e1a-8ccf-421d41f19c6a" name="CaptureDigits" collection-type="DIGITS" bargein="false" sensitive="false">
+        <prompt id="34c5f6a6-5610-4e7a-baa8-18ec0ae7588a">
+          <static-audio-reference id="d971b7cc-d1b6-49a4-b3e7-82b7a7675c43" static-audio-id="70a7d58b-e978-493b-a456-188841699b0e"/>
+        </prompt>
+        <response id="8c64c399-2503-4e1a-8ccf-421d41f19c6a-VARIABLE" next-step-id="5a8e6bb5-724a-4d1c-b3f4-bb23da9c9769" type="VARIABLE" runtime-value="" removable="false"/>
+        <errorhandler>
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="48b9907f-1c78-40fe-98f2-76e0605e2cea">
+              <static-audio-reference id="fc777b0b-f942-4f7a-9de7-62db334bc011" static-audio-id="70a7d58b-e978-493b-a456-188841699b0e"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="6feb30a6-bcd4-41f7-bab9-441727c4c8e7">
+              <static-audio-reference id="b1911545-c63e-43b2-be3e-28d3056eb882" static-audio-id="049188ec-0948-4abd-b409-de49d958cfab"/>
+            </prompt>
+          </error>
+        </errorhandler>
+        <constraints>
+          <digit-range from="5" to="5"/>
+        </constraints>
+      </collectionstep>
+      <collectionstep id="77b77060-5455-4788-bc3b-fb11ca609c1e" name="CaptureNumber" collection-type="NUMBER" bargein="false" sensitive="false">
+        <prompt id="b45c1337-47e4-4cf3-97c1-fa25cd63e863">
+          <static-audio-reference id="a0832fd1-88ef-42ca-b953-9cc3b03b0434" static-audio-id="2592447d-67e7-4501-9785-a12082366253"/>
+        </prompt>
+        <response id="77b77060-5455-4788-bc3b-fb11ca609c1e-VARIABLE" next-step-id="a0faca65-12cc-4a7d-bb4f-3ebdb5b1cbdc" type="VARIABLE" runtime-value="" removable="false"/>
+        <errorhandler>
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="5044ac8f-d0d6-4154-9cc5-ec6cf83ff89b">
+              <static-audio-reference id="c07681cc-cf77-4892-a7c8-ac5b367a5410" static-audio-id="2592447d-67e7-4501-9785-a12082366253"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="727005cb-2777-42c8-b8fd-acb1589d02c4">
+              <static-audio-reference id="b80b9df5-0419-4ef3-857a-eb970e45ddbe" static-audio-id="f72f33ef-c56f-40f6-9dc4-4f7b4c9cc1b3"/>
+            </prompt>
+          </error>
+        </errorhandler>
+        <constraints>
+          <numeric-decimal count="0"/>
+        </constraints>
+      </collectionstep>
+      <collectionstep id="a8db0915-ecf9-476f-9891-ce884a743fb2" name="CaptureDate" collection-type="DATE" bargein="true" sensitive="false">
+        <prompt id="9bece8b4-908f-432e-8970-d1f20b8db8cc">
+          <static-audio-reference id="3599bc08-290e-4442-82d1-9f8582ddfda9" static-audio-id="8ceb99ce-ca2f-415e-a4e3-eef18f0fae7c"/>
+        </prompt>
+        <response id="a8db0915-ecf9-476f-9891-ce884a743fb2-VARIABLE" next-step-id="1f4b0fe5-4d0b-4084-9510-f9fdd0703450" type="VARIABLE" runtime-value="" removable="false"/>
+        <errorhandler>
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="2dfb2fab-add4-4f6f-ab12-e8d0b4cb8c74">
+              <static-audio-reference id="750332a1-bdb6-43ef-a985-09ec2cacdfd9" static-audio-id="8ceb99ce-ca2f-415e-a4e3-eef18f0fae7c"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="af1b03c0-90af-432a-b709-fc1196692015">
+              <static-audio-reference id="4da4acdf-b876-4b1e-a9cf-9567b093f42b" static-audio-id="ae5fd004-80a6-43de-a2cb-34596738766e"/>
+            </prompt>
+          </error>
+        </errorhandler>
+        <constraints>
+          <timezone timezone="America/New_York"/>
+        </constraints>
+      </collectionstep>
+      <promptstep id="5a8e6bb5-724a-4d1c-b3f4-bb23da9c9769" name="PlayDigits" next-step-id="b3ea47d9-22c4-485f-988d-07e7640a6a1d">
+        <prompt id="40c19097-4c32-441d-8952-8e157b045581">
+          <static-audio-reference id="2d932405-7fb0-4c2f-a7dc-953411e6da00" static-audio-id="5de11a2f-697a-42f7-8649-7d861c4526ed"/>
+          <variable-audio id="a35fd712-0a98-4da0-a6b4-35957d8d4ebb" speech-type="DIGITS" decimal-places="0">
+            <variable-reference variable-name="COLLECTION_RESULT" reference-type="STRING" step-id="8c64c399-2503-4e1a-8ccf-421d41f19c6a"/>
+            <digits-pattern pattern="#####" intonation="UP"/>
+          </variable-audio>
+        </prompt>
+      </promptstep>
+      <promptstep id="a0faca65-12cc-4a7d-bb4f-3ebdb5b1cbdc" name="PlayNumber" next-step-id="b3ea47d9-22c4-485f-988d-07e7640a6a1d">
+        <prompt id="5589a8ff-c7a2-4219-822f-ffe3eb1f77b3">
+          <static-audio-reference id="39781eac-5775-4587-b49d-ce9833582a6b" static-audio-id="5de11a2f-697a-42f7-8649-7d861c4526ed"/>
+          <variable-audio id="67f19c8e-83ad-4619-aa2f-f59f28ca5d8b" speech-type="TEXT" decimal-places="0">
+            <variable-reference variable-name="COLLECTION_RESULT" reference-type="INTEGER" step-id="77b77060-5455-4788-bc3b-fb11ca609c1e"/>
+          </variable-audio>
+        </prompt>
+      </promptstep>
+      <promptstep id="1f4b0fe5-4d0b-4084-9510-f9fdd0703450" name="PlayDate" next-step-id="b3ea47d9-22c4-485f-988d-07e7640a6a1d">
+        <prompt id="730ad73e-ed15-4b68-a3ba-2414971a6299">
+          <static-audio-reference id="533e8547-a9e6-4be1-a8e0-86498823f236" static-audio-id="5de11a2f-697a-42f7-8649-7d861c4526ed"/>
+          <variable-audio id="89b84e79-06aa-4c21-b374-9bd8cd04211e" speech-type="DATE" timeZone="America/New_York" decimal-places="0" date-pattern="MONTH_DAYOFMONTH_YEAR">
+            <variable-reference variable-name="COLLECTION_RESULT" reference-type="DATE" step-id="a8db0915-ecf9-476f-9891-ce884a743fb2"/>
+          </variable-audio>
+        </prompt>
+      </promptstep>
+      <yesnomenustep id="b3ea47d9-22c4-485f-988d-07e7640a6a1d" name="ConfirmContinue" bargein="true">
+        <prompt id="61db191f-8416-43fb-a601-d5ef220fac71">
+          <static-audio-reference id="dbe6dda3-552b-49cd-b183-b9149215c14f" static-audio-id="203cfc6a-baed-4f7f-87a9-2d9194fae0e2"/>
+        </prompt>
+        <response id="YES" keypad="1" next-step-id="a46cda9c-d67b-418b-b635-00c9d76babab" type="YES" value="YES" runtime-value="yes" removable="false"/>
+        <response id="NO" keypad="2" next-step-id="94db1bf9-f954-45ae-ace7-6df8a5e08afe" type="NO" value="NO" runtime-value="no" removable="false"/>
+        <errorhandler max-errors-step-id="94db1bf9-f954-45ae-ace7-6df8a5e08afe">
+          <error use-default="true" default-error-id="e6320e6e-4780-4560-8da7-b64407556d19">
+            <prompt id="8f6347dc-37c8-4212-aa2f-be83a9d53e60">
+              <static-audio-reference id="fa6ee3d8-901c-4f57-912c-6eadfdf48f9c" static-audio-id="203cfc6a-baed-4f7f-87a9-2d9194fae0e2"/>
+            </prompt>
+          </error>
+          <error use-default="true" default-error-id="4a37a19b-4157-438a-b5d6-6f5be6c0c1b4">
+            <prompt id="006e575b-4919-41df-9ae5-158d204c822d">
+              <static-audio-reference id="ce23b8ca-f220-4a6b-b03a-875bf890f936" static-audio-id="18fdf745-4a0d-43b0-a2e6-631a15e622bb"/>
+            </prompt>
+          </error>
+        </errorhandler>
+      </yesnomenustep>
+      <promptstep id="94db1bf9-f954-45ae-ace7-6df8a5e08afe" name="CaptureExit" next-step-id="fa84f31f-a797-4405-8319-b06f6047f8e0">
+        <prompt id="66a17a00-05a9-4147-b7f9-bc9afe0c7526">
+          <static-audio-reference id="821e5d01-d1dc-4633-b53c-0cb109598476" static-audio-id="0065317e-88a3-4b18-87b9-e7a2130267e8"/>
+        </prompt>
+      </promptstep>
+      <transferstep id="a2621cf5-463b-47de-a67a-6e8661d37acf" name="xferLeadCapture" transfer-type="InternalApplication" application-name="Lead Capture Line" error-step-id="cebda4f9-f86a-44c0-a9f2-70fb3c62b0db"/>
+      <datastep id="0a7d2ea2-0402-4eee-9c57-4020cb293116" name="GetQuote" success-step-id="df0bf474-5057-4f4f-b90d-5f2eac711f40" failed-step-id="cebda4f9-f86a-44c0-a9f2-70fb3c62b0db">
+        <http-connection url="http://127.0.0.1:9996/Designer/services/qotd.jsp" timeout="20" method="GET" response-datatype="STRING">
+          <parameters/>
+        </http-connection>
+      </datastep>
+      <promptstep id="df0bf474-5057-4f4f-b90d-5f2eac711f40" name="PlayQuote" next-step-id="fa84f31f-a797-4405-8319-b06f6047f8e0">
+        <prompt id="6385cb6b-2b9e-4643-9ff8-74cb0bdf740c">
+          <static-audio-reference id="29986d2d-981b-4927-99f3-83df803a7ea6" static-audio-id="4d3da80a-3281-4558-abf8-429786d61d95"/>
+          <variable-audio id="995595ef-901d-47be-8f1c-69444d33572c" speech-type="TEXT" decimal-places="0">
+            <variable-reference variable-name="RESULT" reference-type="STRING" step-id="0a7d2ea2-0402-4eee-9c57-4020cb293116"/>
+          </variable-audio>
+        </prompt>
+      </promptstep>
+      <transferstep id="25d49ebc-74f1-4d36-9788-be76855bc592" name="xferCustomerService" transfer-type="InternalApplication" application-name="Customer Service Line" error-step-id="cebda4f9-f86a-44c0-a9f2-70fb3c62b0db"/>
+      <promptstep id="0bd057c6-eff4-4dfc-b628-82f4260c2d7f" name="AutoAttendantNotValid" next-step-id="5ed374fb-014b-4e50-bbcf-4bf039f92cbf">
+        <prompt id="76FE2DC1-19BC-4AE6-9993-4E476C9D65DF">
+          <static-audio-reference id="79BC7158-554B-4006-8ADA-6D9C2338D3E4" static-audio-id="B2CC2ECD-068E-412F-9AB8-1B512D65CD82"/>
+        </prompt>
+      </promptstep>
+    </steps>
+  </script>
+  <description>This project will guide you through many of the features that Voxeo Designer has to offer.</description>
+  <step-types>
+    <step-type id="PROMPTSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.PromptStep" display-name="Announcement"/>
+    <step-type id="HANGUPSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.HangupStep" display-name="Hangup"/>
+    <step-type id="TRANSFERSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.TransferStep" display-name="Transfer"/>
+    <step-type id="YESNOMENUSTEP" category="Question" model-class="com.netbytel.voiceready.appassistant.model.steps.YesNoMenuStep" display-name="Yes/No"/>
+    <step-type id="MENUSTEP" category="Question" model-class="com.netbytel.voiceready.appassistant.model.steps.MenuStep" display-name="Multiple-Choice"/>
+    <step-type id="DAYTIMEROUTINGSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.DayTimeRoutingStep" display-name="Time-Based Routing"/>
+    <step-type id="COLLECTIONSTEP" category="Question" model-class="com.netbytel.voiceready.appassistant.model.steps.CollectionStep" display-name="Caller Input"/>
+    <step-type id="DECISIONSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.DecisionStep" display-name="Decision"/>
+    <step-type id="LOOPSTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.LoopStep" display-name="Iterator"/>
+    <step-type id="DATASTEP" category="Action" model-class="com.netbytel.voiceready.appassistant.model.steps.DataStep" display-name="Data Integration"/>
+    <step-type id="RECORDINGSTEP" category="Question" model-class="com.netbytel.voiceready.appassistant.model.steps.RecordingStep" display-name="Record Audio"/>
+  </step-types>
+</application>
