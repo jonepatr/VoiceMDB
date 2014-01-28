@@ -80,7 +80,7 @@ app.all "/search", ((req, res, next) ->
             console.log("LOG: Search result:", results[0])
             fs.writeFile "./tmp/test", JSON.stringify(results[0]), (err) ->
               console.log("saved!")
-            req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
+            req._voicemdb = results[0].title + ", from " + results[0].year + ", with a rating of " + results[0]["ratings"].critics_score
             next()
           else
             req._voicemdb = "r-empty"
@@ -123,7 +123,7 @@ app.all "/movieDetails", (req, res, next) ->
     result = []
     switch params.type
       when 'cast'
-        result = jsons.abridged_cast[0..5].map((a) -> a.name + " as " + a.characters[0])
+        result = jsons.abridged_cast[0..5].map((a) -> a.name + ", as " + a.characters[0])
         result = "I'm sorry, there are no actors in " + jsons.title if result.length is 0
         console.log("LOG: movieDetails cast: ", result )
       when 'synopsis'      
@@ -139,7 +139,7 @@ app.all "/movieDetails", (req, res, next) ->
 app.all "/current", ((req, res, next) ->  
   movies.getList 'movies', 'in_theaters', (err, result) ->
     console.log(result)
-    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + " with a rating of " + a["ratings"].critics_score)
+    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + ", with a rating of " + a["ratings"].critics_score)
     next()
 ), (req, res, next) ->
   try
