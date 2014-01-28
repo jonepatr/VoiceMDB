@@ -38,13 +38,26 @@ app.all "/voice", ((req, res, next) ->
       body: file
       headers: 
         'Content-Type': 'audio/x-flac; rate=8000'
-    
-    request.post options, (error, response, body) ->           
-      body = body.split("\n")[0]
-      console.log(body) 
-      req._voicemdb = JSON.parse(body)["hypotheses"][0].utterance
+    try
+      request.post options, (error, response, body) ->  
+        try
+          if error?.errno isnt 'ENOTFOUND'          
+              body = body.split("\n")[0]
+              console.log(JSON.parse(body)["hypotheses"].length) 
+              if JSON.parse(body)["hypotheses"].length is 0
+                req._voicemdb = "g-empty"
+              else
+                req._voicemdb = JSON.parse(body)["hypotheses"][0].utterance
+              next()        
+          else
+            req._voicemdb = "n-connection"
+            next()
+        catch      
+          req._voicemdb = "n-crash"
+          next()
+    catch      
+      req._voicemdb = "n-crash"
       next()
-#      , 1
 ), (req, res, next) ->
   try
     res.send req._voicemdb
