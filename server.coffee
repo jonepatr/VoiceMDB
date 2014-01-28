@@ -7,6 +7,7 @@ watch = require('watch')
 port = process.env.PORT or 1235
 dir = "/Applications/Voxeo/Prophecy/webapps/www/MRCP/Utterances/"
 tomatoes = require('tomatoes')
+movies = tomatoes('bkmrmkfhr3fpdwn3tqn59k4b')
 
 app.configure ->
   app.use express.bodyParser()
@@ -37,6 +38,7 @@ app.all "/voice", ((req, res, next) ->
       body: file
       headers: 
         'Content-Type': 'audio/x-flac; rate=8000'
+    
     request.post options, (error, response, body) ->           
       body = body.split("\n")[0]
       console.log(body) 
@@ -51,18 +53,14 @@ app.all "/voice", ((req, res, next) ->
 app.all "/search", ((req, res, next) ->  
   
   params = get_params(req.url[7...]);
-  
-  
-  movies = tomatoes('bkmrmkfhr3fpdwn3tqn59k4b')
-  
-  
-  str = params.what.replaceAll("+", " ")
-  console.log(str )
-  
-  movies.search str, (err, results) ->
-    console.log(err, results)
-    req._voicemdb = results
-    next()
+  if params.type is "movie"
+    movies.search params.what.replaceAll("+", " "), (err, results) ->
+      console.log(err, results[0])
+      #" by " + results[0].abridged_directors
+      req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
+      next()
+  else
+    
   
     
     # regex = /(<([^>]+)>)/g
@@ -78,7 +76,23 @@ app.all "/search", ((req, res, next) ->
   try
     res.send req._voicemdb    
     
-    
+
+
+app.all "/current", ((req, res, next) ->  
+  movies.getList 'movies', 'in_theaters', (err, result) ->
+    console.log(result)
+    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + " from " + a.year + " with a rating of " + a["ratings"].critics_score)
+    next()
+), (req, res, next) ->
+  try
+    res.send req._voicemdb    
+
+
+
+
+
+
+ 
 get_params = (search_string) ->
   parse = (params, pairs) ->
     pair = pairs[0]
