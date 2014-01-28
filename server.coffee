@@ -43,7 +43,6 @@ app.all "/voice", ((req, res, next) ->
         try
           if error?.errno isnt 'ENOTFOUND'          
               body = body.split("\n")[0]
-              console.log(JSON.parse(body)["hypotheses"].length) 
               if JSON.parse(body)["hypotheses"].length is 0
                 req._voicemdb = "g-empty"
               else
@@ -64,15 +63,30 @@ app.all "/voice", ((req, res, next) ->
     
 
 app.all "/search", ((req, res, next) ->  
-  
-  params = get_params(req.url[7...]);
-  if params.type is "movie"
-    movies.search params.what.replaceAll("+", " "), (err, results) ->
-      console.log(err, results[0])
-      #" by " + results[0].abridged_directors
-      req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
-      next()
-  else
+  try
+    params = get_params(req.url[7...]);
+    console.log(params.what, "aaaa")
+    movies.search params.what.replaceAll("+", " "), (error, results) ->      
+      try
+        if error?.errno isnt 'ENOTFOUND'
+          
+          if results.length isnt 0
+            #" by " + results[0].abridged_directors
+            req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
+            next()
+          else
+            req._voicemdb = "r-empty"
+            next()
+        else
+          req._voicemdb = "n-connection"
+          next()
+      catch      
+        req._voicemdb = "n-crash"
+        next()
+  catch      
+    req._voicemdb = "n-crash"
+    next()
+
     
   
     
