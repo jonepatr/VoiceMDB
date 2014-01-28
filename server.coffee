@@ -70,6 +70,7 @@ app.all "/search", ((req, res, next) ->
     params = get_params(req.url[7...])
     what = params.what.replaceAll("+", " ")
     console.log("LOG: Search param is: ", what )
+    
     movies.search what , (error, results) ->      
       try
         if error?.errno isnt 'ENOTFOUND'
@@ -77,6 +78,8 @@ app.all "/search", ((req, res, next) ->
           if results.length isnt 0
             #" by " + results[0].abridged_directors
             console.log("LOG: Search result:", results[0])
+            fs.writeFile "./tmp/test", JSON.stringify(results[0]), (err) ->
+              console.log("saved!")
             req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
             next()
           else
@@ -110,10 +113,33 @@ app.all "/search", ((req, res, next) ->
     
 
 
+app.all "/movieDetails", (req, res, next) ->  
+  try
+    console.log("LOG: movieDetails started")
+    file = fs.readFileSync "./tmp/test"
+    params = get_params(req.url[13...])
+    console.log("LOG: movieDetails params: ", params)
+    jsons = JSON.parse(file.toString())
+    result = []
+    switch params.type
+      when 'cast'
+        result = jsons.abridged_cast[0..5].map((a) -> a.name + " as " + a.characters[0])
+        result = "I'm sorry, there are no actors in " + jsons.title if result.length is 0
+        console.log("LOG: movieDetails cast: ", result )
+      when 'synopsis'      
+        result = jsons.synopsis
+        result = "I'm sorry, there is no synopsis for " + jsons.title if result is ""
+        console.log("LOG: movieDetails synopsis: ", result )
+  catch    
+    result = "Sorry, not today"
+    console.log("LOG: movieDetails failed: ", result )
+  res.send result
+
+
 app.all "/current", ((req, res, next) ->  
   movies.getList 'movies', 'in_theaters', (err, result) ->
     console.log(result)
-    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + " from " + a.year + " with a rating of " + a["ratings"].critics_score)
+    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + " with a rating of " + a["ratings"].critics_score)
     next()
 ), (req, res, next) ->
   try
