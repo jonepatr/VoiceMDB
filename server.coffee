@@ -6,10 +6,18 @@ request = require('request')
 watch = require('watch')
 port = process.env.PORT or 1235
 dir = "/Applications/Voxeo/Prophecy/webapps/www/MRCP/Utterances/"
+tomatoes = require('tomatoes')
 
 app.configure ->
   app.use express.bodyParser()
   app.use app.router
+
+
+String::replaceAll = (sfind, sreplace) ->
+  str = this
+  str = str.replace(sfind, sreplace)  while str.indexOf(sfind) > -1
+  str
+  
 
 app.listen port
 app.all "/voice", ((req, res, next) ->  
@@ -43,19 +51,20 @@ app.all "/voice", ((req, res, next) ->
 app.all "/search", ((req, res, next) ->  
   
   params = get_params(req.url[7...]);
-  console.log(params)
-  if params.type is "movie"
-    type = "tt"
-  else
-    type = "nm"
-  options =
-    dataType: "json"
-    #url: 'http://www.imdb.com/xml/find?json=1&q=' + params.what + '&' + type  + '=true'
-    url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=bkmrmkfhr3fpdwn3tqn59k4b&q=' + params.what + '&page_limit=1'
-  request.get options, (error, response, body) ->
-    #if params.type is "movie"
-    console.log(JSON.parse(body))
-    req._voicemdb = JSON.parse(body)
+  
+  
+  movies = tomatoes('bkmrmkfhr3fpdwn3tqn59k4b')
+  
+  
+  str = params.what.replaceAll("+", " ")
+  console.log(str )
+  
+  movies.search str, (err, results) ->
+    console.log(err, results)
+    req._voicemdb = results
+    next()
+  
+    
     # regex = /(<([^>]+)>)/g
 #     result = JSON.parse(body)["title_popular"][0]["description"].replace(regex, "")
 #     newRes = result.split(",")
@@ -63,7 +72,7 @@ app.all "/search", ((req, res, next) ->
 # else
  #      t = JSON.parse(body)["name_popular"][0]["description"].split(",")
  #      req._voicemdb = JSON.parse(body)["name_popular"][0]["name"] + " is an " + t[0]
-    next()
+    
 #      , 1
 ), (req, res, next) ->
   try
@@ -88,5 +97,6 @@ get_params = (search_string) ->
   # Get rid of leading ?
   (if search_string.length is 0 then {} else parse({}, search_string.substr(1).split("&")))
     
+
     
     
