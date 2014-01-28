@@ -22,6 +22,7 @@ String::replaceAll = (sfind, sreplace) ->
 
 app.listen port
 app.all "/voice", ((req, res, next) ->
+  console.log("LOG: Voice start")
   try
     files = fs.readdirSync(dir).map((v) ->
       name: v
@@ -46,6 +47,7 @@ app.all "/voice", ((req, res, next) ->
               if JSON.parse(body)["hypotheses"].length is 0
                 req._voicemdb = "g-empty"
               else
+                console.log("LOG: Voice recognized", body)
                 req._voicemdb = JSON.parse(body)["hypotheses"][0].utterance
               next()        
           else
@@ -63,15 +65,16 @@ app.all "/voice", ((req, res, next) ->
     
 
 app.all "/search", ((req, res, next) ->  
+  console.log("LOG: Search started")
   try
     params = get_params(req.url[7...]);
-    console.log(params.what, "aaaa")
     movies.search params.what.replaceAll("+", " "), (error, results) ->      
       try
         if error?.errno isnt 'ENOTFOUND'
           
           if results.length isnt 0
             #" by " + results[0].abridged_directors
+            console.log("LOG: Search result:", results[0])
             req._voicemdb = results[0].title + " from " + results[0].year + " with a rating of " + results[0]["ratings"].critics_score
             next()
           else
