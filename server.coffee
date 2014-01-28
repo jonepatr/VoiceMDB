@@ -65,10 +65,12 @@ app.all "/voice", ((req, res, next) ->
     
 
 app.all "/search", ((req, res, next) ->  
-  console.log("LOG: Search started")
+  console.log("LOG: Search started with", )
   try
-    params = get_params(req.url[7...]);
-    movies.search params.what.replaceAll("+", " "), (error, results) ->      
+    params = get_params(req.url[7...])
+    what = params.what.replaceAll("+", " ")
+    console.log("LOG: Search param is: ", what )
+    movies.search what , (error, results) ->      
       try
         if error?.errno isnt 'ENOTFOUND'
           
