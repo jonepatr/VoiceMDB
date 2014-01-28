@@ -21,24 +21,24 @@ String::replaceAll = (sfind, sreplace) ->
   
 
 app.listen port
-app.all "/voice", ((req, res, next) ->  
-  files = fs.readdirSync(dir).map((v) ->
-    name: v
-    time: fs.statSync(dir + v).mtime.getTime()
-  ).sort((a, b) ->
-    b.time - a.time
-  ).filter((v) ->
-    v.name if v.name[-3...] is "wav"
-  )
-  console.log(files[0].name)
-  exec 'rm ./tmp/flac.flac; touch ./tmp/flac.flac; flac --best -f --sample-rate=8000 --keep-foreign-metadata --output-name=./tmp/flac.flac ' + dir + files[0].name, () ->
-    file = fs.readFileSync("./tmp/flac.flac")
-    options =
-      url: 'http://www.google.com/speech-api/v1/recognize?client=chromium&lang=en-US&maxresults=1'
-      body: file
-      headers: 
-        'Content-Type': 'audio/x-flac; rate=8000'
-    try
+app.all "/voice", ((req, res, next) ->
+  try
+    files = fs.readdirSync(dir).map((v) ->
+      name: v
+      time: fs.statSync(dir + v).mtime.getTime()
+    ).sort((a, b) ->
+      b.time - a.time
+    ).filter((v) ->
+      v.name if v.name[-3...] is "wav"
+    )
+    console.log(files[0].name)
+    exec 'rm ./tmp/flac.flac; touch ./tmp/flac.flac; flac --best -f --sample-rate=8000 --keep-foreign-metadata --output-name=./tmp/flac.flac ' + dir + files[0].name, () ->
+      file = fs.readFileSync("./tmp/flac.flac")
+      options =
+        url: 'http://www.google.com/speech-api/v1/recognize?client=chromium&lang=en-US&maxresults=1'
+        body: file
+        headers: 
+          'Content-Type': 'audio/x-flac; rate=8000'    
       request.post options, (error, response, body) ->  
         try
           if error?.errno isnt 'ENOTFOUND'          
@@ -55,7 +55,7 @@ app.all "/voice", ((req, res, next) ->
         catch      
           req._voicemdb = "n-crash"
           next()
-    catch      
+  catch      
       req._voicemdb = "n-crash"
       next()
 ), (req, res, next) ->
