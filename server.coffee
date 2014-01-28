@@ -50,14 +50,16 @@ app.all "/search", ((req, res, next) ->
     type = "nm"
   options =
     dataType: "json"
-    url: 'http://www.imdb.com/xml/find?json=1&q=' + params.what + '&' + type  + '=true'
+    #url: 'http://www.imdb.com/xml/find?json=1&q=' + params.what + '&' + type  + '=true'
+    url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=bkmrmkfhr3fpdwn3tqn59k4b&q=' + params.what + '&page_limit=1'
   request.get options, (error, response, body) ->
     #if params.type is "movie"
     console.log(JSON.parse(body))
-    regex = /(<([^>]+)>)/g
-    result = JSON.parse(body)["title_popular"][0]["description"].replace(regex, "")
-    newRes = result.split(",")
-    req._voicemdb = "Found " + JSON.parse(body)["title_popular"][0]["title"] + " from " + newRes[0] + " by " + newRes[1].trim()
+    req._voicemdb = JSON.parse(body)
+    # regex = /(<([^>]+)>)/g
+#     result = JSON.parse(body)["title_popular"][0]["description"].replace(regex, "")
+#     newRes = result.split(",")
+#     req._voicemdb = "Found " + JSON.parse(body)["title_popular"][0]["title"] + " from " + newRes[0] + " by " + newRes[1].trim()
 # else
  #      t = JSON.parse(body)["name_popular"][0]["description"].split(",")
  #      req._voicemdb = JSON.parse(body)["name_popular"][0]["name"] + " is an " + t[0]
