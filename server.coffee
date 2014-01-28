@@ -139,7 +139,7 @@ app.all "/movieDetails", (req, res, next) ->
 app.all "/current", ((req, res, next) ->  
   movies.getList 'movies', 'in_theaters', (err, result) ->
     console.log(result)
-    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + ", with a rating of " + a["ratings"].critics_score)
+    req._voicemdb = result.movies.sort((a, b) -> parseInt(b["ratings"].critics_score) - parseInt(a["ratings"].critics_score) )[0..5].map((a) -> a.title + ", with a rating of " + a["ratings"].critics_score+", ")
     next()
 ), (req, res, next) ->
   try
